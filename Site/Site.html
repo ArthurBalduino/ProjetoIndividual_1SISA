@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Comunidade Gamecube | Home</title>
+</head>
+
+<body>
+    <!-- Header com redirecionamento dos botões (anchor points) -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#banner">
+                <img class="img_logo" src="assets/logo-horizontal.png" alt="Imagem da Logo da SafeControl">
+            </a>
+            <nav>
+                <a href="#quem_somos">Quem Somos</a>
+                <a href="#tecnologia">Tecnologia</a>
+                <a href="./dashboard.html"><button>Acesso Comunidade</button></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Hero -->
+    <div class="hero">
+
+        <video style="padding-top: 80px;" loop autoplay muted playsinline>
+            <source src="./assets/sequence01.mp4" type="video/mp4">
+        </video>
+
+        <div class="container quem-somos" id="quem_somos">
+            <img style="width: 400px; height: 401px; border-radius: 36px;" src="assets/game-cube-intro.gif">
+            <div class="container-content" style="color: white;">
+                <h4>Quem Somos</h4>
+                <h2>Conecte-se ao lendário universo do GameCube.</h2>
+                <p>
+                    Uma comunidade feita para quem vive o clássico, compartilha descobertas e mantém essa era viva.
+                    nostalgia, conteúdo e conexão em um só lugar.
+                </p>
+                <button> Faça parte da nossa família! </button>
+            </div>
+        </div>
+    </div>
+    <!-- Tag Main para controlar o corpo do HTML (container) -->
+    <main class="container">
+
+        <!-- Card Quem Somos -->
+
+
+        <!-- Cards Tecnologia -->
+        <div class="sessao-cards" id="tecnologia">
+            <div class="card">
+                <img class="card_img" src="assets/GEKKO.jpg" alt="CPU “Gekko">
+
+                <div class="text-Card">
+                    <h3>CPU “Gekko”</h3>
+                    <p>
+                        Processador desenvolvido pela IBM baseado em PowerPC Clock de ~485 MHz.
+                        Arquitetura eficiente, focada em jogos.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="card_img" src="assets/flipper.jpg" alt="GPU “Flipper”">
+
+                <div class="text-Card">
+                    <h3>GPU “Flipper”</h3>
+                    <p>
+                        Placa-gráfica desenvolvida pela ATI Technologies (hoje AMD) com clock de ~162 MHz.
+                        Suporte a efeitos avançados como anti-aliasing e iluminação dinâmica.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="card_img" src="assets/mini_dvd.jpeg" alt="MiniDVD">
+
+                <div class="text-Card">
+                    <h3>Mídia MiniDVD</h3>
+                    <p>
+                        Discos de 8 cm com tamanho máximo de 1.5 GB, formato exclusivo da Nintendo e mais difícil de
+                        piratear na época.
+                        Mais segurança em troca de menos espaço que um DVD comum (4.7 GB).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Franquias -->
+        <div class="hero_franquias container-content">
+            <img src="./assets/Arte_Franquias.png" alt="Franquias do GameCube">
+        </div>
+
+        <!-- Carrossel Franquias -->
+        <div class="sessao-franquias">
+
+            <div class="card_franquias">
+                <img class="gif" src="./assets/animal_crossing.gif" alt="">
+                <h4 style="color: white;">Animal Crossing</h4>
+            </div>
+
+            <div class="card_franquias">
+                <img class="gif" src="./assets/mario_kart.gif" alt="">
+                <h4 style="color: white;">Mario Kart:<br>Double Dash</h4>
+            </div>
+
+            <div class="card_franquias">
+                <img class="gif" src="./assets/wind_waker.gif" alt="">
+                <h4 style="color: white;">Legend of Zelda:<br>Wind Waker</h4>
+            </div>
+
+            <div class="card_franquias">
+                <img class="gif" src="./assets/metroid_prime.gif" alt="">
+                <h4 style="color: white;">Metroid Prime</h4>
+            </div>
+
+            <div class="card_franquias">
+                <img class="gif" src="./assets/smash_bros.gif" alt="">
+                <h4 style="color: white;">Super Smash<br>Bros. Melee</h4>
+            </div>
+        </div>
+    </main>
+
+
+</body>
+
+</html>
