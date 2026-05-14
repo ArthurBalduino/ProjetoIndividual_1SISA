@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap');
+@import url("https://use.typekit.net/ttf6eka.css");
+
+html,
+body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: "sofia-pro", sans-serif;
+
+    background-image: url("../assets/bg-quemsomos.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-color: #13131a;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 120%;
+    font-family: "Science Gothic", sans-serif;
+    margin-bottom: 0px;
+}
+
+/* Estilização do Cabeçalho */
+.header {
+    background-color: #13131a;
+    height: 80px;
+    width: 100%;
+
+    z-index: 10;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border-bottom: 2px solid rgba(0, 0, 0, 0.486);
+}
+
+.img-logo {
+    height: 50px;
+}
+
+.logo {
+    height: auto;
+    width: 300px;
+    text-align: center;
+    margin-right: 50px;
+}
+
+
+
+.voltar {
+    width: fit-content;
+    padding: 10px 20px 10px 20px;
+
+    border-radius: 80px;
+
+    background: #1898CF;
+
+    border: 0px #0D4D69;
+
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "sofia-pro", sans-serif;
+
+    justify-content: center;
+    align-content: center;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.voltar:hover {
+    background-color: #4ac2f5;
+    transform: scale(1.05);
+}
+
+
+/* Estilização do Conteúdo Principal */
+.main {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 32px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+.form {
+    background-color: white;
+    width: 450px;
+    padding: 32px 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 16px;
+
+    align-items: center;
+
+    border-radius: 36px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.237);
+}
+
+.form-inputs {
+    width: 85%;
+}
+
+h3 {
+    margin: 5px;
+}
+
+
+
+input {
+    width: 100%;
+    height: 40px;
+    padding: 8px 16px;
+
+    border-radius: 24px;
+    border: 1px solid #888;
+
+    box-sizing: border-box;
+
+    background: #fdfdfd;
+
+    font-size: 14px;
+    font-family: "sofia-pro", sans-serif;
+
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.entrar {
+    width: 85%;
+    padding: 10px 20px 10px 20px;
+
+    border-radius: 80px;
+
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "sofia-pro", sans-serif;
+
+    justify-content: center;
+    align-content: center;
+
+    cursor: pointer;
+    transition: 0.3s;
+
+    color: white;
+    background-color: white;
+    border: 2px solid rgb(0, 132, 255);
+}
+
+.entrar:hover {
+    color: white;
+    background-color: rgb(0, 132, 255);
+}
+
+.link-entrar {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(0, 132, 255);
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.link-entrar:hover {
+    color: #4ac2f5;
+}
+
+button {
+    width: fit-content;
+    padding: 10px 20px 10px 20px;
+
+    border-radius: 80px;
+
+    background: #4B0082;
+    color: #ffffff;
+
+    border: 0px #0D4D69;
+
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "sofia-pro", sans-serif;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+
+    justify-content: center;
+    align-content: center;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #6A5ACD;
+    transform: scale(1.05);
+}
+
+.btn-login {
+    width: 85%;
+    padding: 10px 20px 10px 20px;
+
+    border-radius: 80px;
+
+    background-color: transparent !important;
+
+    color: #4B0082;
+
+    border: 2px solid #4B0082 !important;
+
+    font-size: 14px;
+    font-weight: 700;
+    font-family: "sofia-pro", sans-serif;
+
+    justify-content: center;
+    align-content: center;
+
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+
+.btn-login:hover {
+    background-color: #FF6A00 !important;
+    border: 2px solid #FF6A00 !important;
+    color: white;
+    transform: scale(1.05);
+}
+
+.divisor {
+    border: none;
+    height: 1px;
+    background: #13131a5f;
+
+    width: 80%;
+    margin: 8px auto;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "sofia-pro", sans-serif;
+    line-height: 1.3;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+a {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "sofia-pro", sans-serif;
+    line-height: 1.3;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+select {
+    width: 100%;
+    height: 40px;
+
+    padding: 8px 16px;
+    padding-right: 50px;
+
+    border-radius: 24px;
+    border: 1px solid #888;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-color: #fdfdfd;
+    background-image: url("../assets/seta.png");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 14px;
+
+    box-sizing: border-box;
+
+    font-size: 14px;
+    font-family: Inter;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+select :hover {
+    border-color: #bbb;
+}
+
+select:focus {
+    border-color: #1A3868;
+    background: #ffffff;
+
+    box-shadow: 0 0 0 2px rgba(26, 56, 104, 0.1);
+}

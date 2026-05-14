@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ttf6eka.css">
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+    <title>ComunidadeGC | Home</title>
+</head>
+
+<body>
+    <!-- Header com redirecionamento dos botões (anchor points) -->
+    <header>
+        <div style="border-bottom: 1px solid rgb(168, 168, 168);" class="header-content">
+            <!-- Redes sociais -->
+            <div class="redes-sociais">
+
+                <a href="#" class="icone_rede">
+                    <img class="icones-header" src="./assets/icons/icone_discord.png" alt="Discord">
+                </a>
+
+                <a href="#" class="icone_rede">
+                    <img class="icones-header" src="./assets/icons/icone_yt.png" alt="YouTube">
+                </a>
+
+                <a href="#" class="icone_rede">
+                    <img class="icones-header" src="./assets/icons/icone_x.png" alt="X">
+                </a>
+
+                <a href="#" class="icone_rede">
+                    <img class="icones-header" src="./assets/icons/icone_tiktok.png" alt="TikTok">
+                </a>
+
+                <a href="#" class="icone_rede">
+                    <img class="icones-header" src="./assets/icons/icone_instagram.png" alt="Instagram">
+                </a>
+            </div>
+            <a href="#banner">
+                <img class="img_logo" src="assets/logo-horizontal.png" alt="Imagem da Logo da SafeControl">
+            </a>
+
+            <div style="display: flex; gap: 8px;">
+                <button onclick="login()" class="btn-login">Entrar</button>
+                <button onclick="cadastro()">Cadastrar-se</button>
+            </div>
+        </div>
+
+        <div class="header-bottom">
+            <nav>
+                <a href="#quem_somos">Quem Somos</a>
+                <a href="#franquias">Franquias</a>
+                <a href="#quiz">Quiz</a>
+                <a href="#jogos">Jogos Favoritos</a>
+                <a href="#especificacoes">Especificações</a>
+                <a href="#fanarts">Fanarts</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Hero -->
+    <div class="hero">
+
+        <div class="video-container">
+            <video loop autoplay muted>
+                <source src="./assets/sequence01.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="container quem-somos" id="quem_somos">
+            <img style="width: 400px; height: 401px; border-radius: 36px; margin-left: 48px;"
+                src="assets/game-cube-intro.gif">
+            <div class="container-content">
+                <h4>Quem Somos</h4>
+                <h2>Conecte-se ao lendário universo do GameCube.</h2>
+                <p>
+                    Uma comunidade feita para quem vive o clássico, compartilha descobertas e mantém essa era viva.
+                    Nostalgia, conteúdo e conexão em um só lugar.
+                </p>
+                <button> Faça parte da nossa família! </button>
+            </div>
+        </div>
+    </div>
+    <!-- Tag Main para controlar o corpo do HTML (container) -->
+    <main class="container">
+
+        <!-- Card Franquias -->
+        <div id="franquias" class="hero_franquias container-content">
+            <img src="./assets/Arte_Franquias.png" alt="Franquias do GameCube">
+        </div>
+
+        <!-- Carrossel Franquias -->
+        <div class="sessao-franquias">
+            <div class="carrossel-wrapper">
+                <div class="carrossel-track">
+
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/animal_crossing.gif" alt="animal_crossing">
+                        <h4 style="color: white;">Animal Crossing</h4>
+                    </div>
+
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/mario_kart.gif" alt="mario_kart">
+                        <h4 style="color: white;">Mario Kart:<br>Double Dash</h4>
+                    </div>
+
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/wind_waker.gif" alt="wind_waker">
+                        <h4 style="color: white;">Legend of Zelda:<br>Wind Waker</h4>
+                    </div>
+
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/metroid_prime.gif" alt="metroid_prime">
+                        <h4 style="color: white;">Metroid Prime</h4>
+                    </div>
+
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/smash_bros.gif" alt="smash_bros">
+                        <h4 style="color: white;">Super Smash<br>Bros. Melee</h4>
+                    </div>
+
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/donkey-kong-bongos.gif" alt="donkey-kong-bongos">
+                        <h4 style="color: white;">Donkey Kong <br> Jungle Beat</h4>
+                    </div>
+
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/f-zero-gx.gif" alt="f-zero-gx">
+                        <h4 style="color: white;">F-ZERO GX</h4>
+                    </div>
+
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/luigis-mansion.gif" alt="luigis-mansion">
+                        <h4 style="color: white;">Luigi's Mansion</h4>
+                    </div>
+
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/mario-party-7.gif" alt="mario-party-7">
+                        <h4 style="color: white;">Mario Party 7</h4>
+                    </div>
+
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/path_of_radiance.gif" alt="path_of_radiance">
+                        <h4 style="color: white;">Fire Emblem: <br> Path of Radiance</h4>
+                    </div>
+
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/pikmin.gif" alt="pikmin">
+                        <h4 style="color: white;">Pinkmin</h4>
+                    </div>
+
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/re4.gif" alt="re4">
+                        <h4 style="color: white;">Resident Evil 4</h4>
+                    </div>
+
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/starfoxadventures.gif" alt="starfoxadventures">
+                        <h4 style="color: white;">Star Fox Adventures</h4>
+                    </div>
+
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/super-mario-strikers.gif" alt="super-mario-strikers">
+                        <h4 style="color: white;">Super Mario Strikers</h4>
+                    </div>
+
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/super-mario-sunshine.gif" alt="super-mario-sunshine">
+                        <h4 style="color: white;">Super Mario Sunshine</h4>
+                    </div>
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/wario-world.gif" alt="wario-world">
+                        <h4 style="color: white;">Wario World</h4>
+                    </div>
+                    <div class="card_franquias">
+                        <img class="gif" src="./assets/zelda-princess.gif" alt="zelda-princess">
+                        <h4 style="color: white;">Legend of Zelda:<br>Twilight Princess</h4>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Card quiz -->
+        <div id="quiz" class="container-quiz">
+
+            <div style="width: 35%;" class="container-content">
+                <h4>Quiz</h4>
+                <h2>Teste seu conhecimento sobre o universo cubístico!</h2>
+                <p>
+                    Uma comunidade feita para quem vive o clássico, compartilha descobertas e mantém essa era viva.
+                    Nostalgia, conteúdo e conexão em um só lugar.
+                </p>
+
+                <div style="display: flex; gap: 16px;">
+                    <button id="btnIniciarQuiz" onclick="iniciarQuiz()">Iniciar teste!</button>
+                    <button class="btn-login" id="btnTentarNovamente" onclick="tentarNovamente()" disabled>Tentar
+                        novamente</button>
+                </div>
+
+
+            </div>
+
+
+            <div class="card-quiz">
+                <div onload="onloadEsconder()" id="jogo" class="div-jogo">
+
+                    <img id="arte-quiz" class="arte-quiz" src="./assets/ArteQuiz.png" alt="Arte-quiz">
+
+                    <div style="display: none;" id="pontuacaoEJogo">
+
+                        <div id="jogo" class="div-jogo">
+
+                            <!-- QUESTÃO ATUAL -->
+                            <div id="infoQuestao" style="padding-top: 12px; color:  #ffffff5f;">
+                                <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span
+                                        id="qtdQuestoes"></span>
+                                    questões.</span>
+                            </div>
+
+                            <hr class="divisor">
+
+                            <div class="div-questoes">
+
+                                <div id="perguntaDaQuestaoAtual" class="">
+                                    <span id="spanQuestaoExibida" class="questao"></span>
+                                </div>
+
+                                <!-- RADIO BOXES -->
+                                <div id="opcoes" class="div-radio">
+                                    <span class="radio-box">
+                                        <input type="radio" id="primeiraOpcao" name="option" class="radio"
+                                            value="alternativaA" />
+                                        <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                                    </span>
+                                    <span class="radio-box">
+                                        <input type="radio" id="segundaOpcao" name="option" class="radio"
+                                            value="alternativaB" />
+                                        <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                                    </span>
+                                    <span class="radio-box">
+                                        <input type="radio" id="terceiraOpcao" name="option" class="radio"
+                                            value="alternativaC" />
+                                        <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                                    </span>
+                                    <span class="radio-box">
+                                        <input type="radio" id="quartaOpcao" name="option" class="radio"
+                                            value="alternativaD" />
+                                        <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                                    </span>
+                                </div>
+
+                                <div id="botoes" class="flex-colunar padding-8">
+                                    <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                                    <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima
+                                        questão</button>
+                                    <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+                                </div>
+                            </div>
+
+
+
+                            <hr class="divisor">
+
+                            <div class="div-jogo">
+                                <div id="pontuacao">
+                                    <div id="pontuacaoDuranteJogo" class="div-pontuacao">
+
+                                        <span id="SpanCertas">Acertos: <span id="spanCertas"></span></span>
+                                        <span id="SpanErradas">Erros: <span id="spanErradas"></span></span>
+
+                                        <div id="pontuacaoFinalJogo">
+                                            <span id="pontuacaoFinal">Pontuação Final:
+                                                <span id="spanPontuacaoFinal">***</span>
+                                            </span>
+
+                                            <span id="msgFinal">***</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards Jogos Favoritos -->
+        <div id="jogos">
+            <div class="chamada">
+                <h4>Os mais amados</h4>
+                <h2>Qual o seu jogo favorito?</h2>
+                <p>
+                    Cadastre-se e vote no seu jogo do coração!
+                </p>
+            </div>
+
+            <div class="sessao-cards">
+                <div class="card-logos">
+                    <img class="img_card_logos" src="./assets/logos_games/windwaker.png" alt="wind_waker">
+                    <div class="text-Card">
+                        <h3 style="margin-top: 0px; margin-bottom: 0px;"> 99% </h3>
+                        <h4>The Legend of Zelda: Wind Waker</h4>
+                    </div>
+                </div>
+
+                <div class="card-logos">
+                    <img class="img_card_logos" src="./assets/logos_games/smash-melee.png" alt="smash-melee">
+                    <div class="text-Card">
+                        <h3 style="margin-top: 0px; margin-bottom: 0px;"> 99% </h3>
+                        <h4>Smash Bros. Melee</h4>
+                    </div>
+                </div>
+
+                <div class="card-logos">
+                    <img class="img_card_logos" src="./assets/logos_games/metroid-prime.png" alt="metroid-prime">
+                    <div class="text-Card">
+                        <h3 style="margin-top: 0px; margin-bottom: 0px;"> 99% </h3>
+                        <h4>Metroid Prime</h4>
+                    </div>
+                </div>
+
+                <div class="card-logos">
+                    <img class="img_card_logos" src="./assets/logos_games/mario-kart.png" alt="mario-kart">
+                    <div class="text-Card">
+                        <h3 style="margin-top: 0px; margin-bottom: 0px;"> 99% </h3>
+                        <h4>Mario Kart: Double Dash </h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chamada">
+                <button onclick="cadastro()">Vote no seu favorito!</button>
+            </div>
+        </div>
+
+        <!-- Cards Especificações -->
+        <div id="especificacoes" style="margin-top: 40px;" class="chamada">
+            <h4>Especificações</h4>
+            <h2>O que torna o Gamecube único!</h2>
+        </div>
+
+        <div class="sessao-cards" id="tecnologia">
+
+            <div class="card">
+                <img class="card_img" src="assets/GEKKO.jpg" alt="CPU “Gekko">
+
+                <div class="text-Card">
+                    <h3>CPU “Gekko”</h3>
+                    <p>
+                        Processador desenvolvido pela IBM baseado em PowerPC Clock de ~485 MHz.
+                        Arquitetura eficiente, focada em jogos.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="card_img" src="assets/flipper.jpg" alt="GPU “Flipper”">
+
+                <div class="text-Card">
+                    <h3>GPU “Flipper”</h3>
+                    <p>
+                        Placa-gráfica desenvolvida pela ATI Technologies (hoje AMD) com clock de ~162 MHz.
+                        Suporte a efeitos avançados como anti-aliasing e iluminação dinâmica.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="card_img" src="assets/mini_dvd.jpeg" alt="MiniDVD">
+
+                <div class="text-Card">
+                    <h3>Mídia MiniDVD</h3>
+                    <p>
+                        Discos de 8 cm com tamanho máximo de 1.5 GB, formato exclusivo da Nintendo e mais difícil de
+                        piratear na época.
+                        Mais segurança em troca de menos espaço que um DVD comum (4.7 GB).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards Fanarts-->
+        <div id="fanarts" class="chamada">
+            <h4>Fanarts</h4>
+            <h2>Exponha o seu amor ao cubo!</h2>
+            <p>
+                Cadastre-se e envie sua arte para ser exposta!
+            </p>
+        </div>
+        <div class="sessao-cards">
+            <div class="carrossel-wrapper">
+                <div class="carrossel-track">
+                    <div class="card_fanart">
+                        <img class="img_fanart" src="./assets/Fanart/5f09e22097009efbf24dcf574d0317c2.jpg" alt="">
+                    </div>
+                    <div class="card_fanart">
+                        <img class="img_fanart" src="./assets/Fanart/052027c64646bfee432bdee05bd90fca.jpg" alt="">
+                    </div>
+                    <div class="card_fanart">
+                        <img class="img_fanart" src="./assets/Fanart/32b383ad1345e1d78d553f2525905204bb243751.png"
+                            alt="">
+                    </div>
+                    <div class="card_fanart">
+                        <img class="img_fanart" src="./assets/Fanart/8136ace6c367da451d4ce585a3a6e895.jpg" alt="">
+                    </div>
+
+                    <div class="card_fanart">
+                        <img class="img_fanart" src="./assets/Fanart/9c7295dcf6fb44c3d4254f99ff4a3245.jpg" alt="">
+                    </div>
+                    <div class="card_fanart">
+                        <img class="img_fanart" src="./assets/Fanart/6a403b8fd81f215fe8654091b19804fc.jpg" alt="">
+                    </div>
+                    <div class="card_fanart">
+                        <img class="img_fanart" src="./assets/Fanart/59bc34e89898d78b7f3b38f15b66101d.jpg" alt="">
+                    </div>
+                    <div class="card_fanart">
+                        <img class="img_fanart" src="./assets/Fanart/374f341d13920b7bc809ce7cedecea6d0b1215bc.png"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-content">
+            <div class="contato">
+                <img style="width: 250px;" src="assets/logo-vertical.png" alt="Logo Comunidade GameCube">
+
+                <div class="tipos-Contato">
+                    <h2>Entre em Contato</h2>
+                    <div class="redes-sociais">
+
+                        <a href="#" class="icone_rede">
+                            <img class="icones-header" src="./assets/icons/icone_discord.png" alt="Discord">
+                        </a>
+
+                        <a href="#" class="icone_rede">
+                            <img class="icones-header" src="./assets/icons/icone_x.png" alt="X">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tipos-Redes">
+                    <h2>Siga nossas Redes!</h2>
+                    <div class="redes-sociais">
+                        <a href="#" class="icone_rede">
+                            <img class="icones-header" src="./assets/icons/icone_yt.png" alt="YouTube">
+                        </a>
+                        <a href="#" class="icone_rede">
+                            <img class="icones-header" src="./assets/icons/icone_tiktok.png" alt="TikTok">
+                        </a>
+                        <a href="#" class="icone_rede">
+                            <img class="icones-header" src="./assets/icons/icone_instagram.png" alt="Instagram">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p style="font-size: 11px;">Comunidade Gamecube ©2026 Todos os Direitos Reservados</p>
+    </footer>
+</body>
+
+</html>
+
+<script>
+    // CARROSSEL INFINITO
+    const wrappers =
+        document.querySelectorAll(".carrossel-wrapper");
+
+    wrappers.forEach(wrapper => {
+
+        const track =
+            wrapper.querySelector(".carrossel-track");
+
+        track.innerHTML += track.innerHTML;
+
+        const metadeScroll =
+            track.scrollWidth / 2;
+
+        const velocidade = 1.2;
+
+        function animar() {
+
+            wrapper.scrollLeft += velocidade;
+
+            if (wrapper.scrollLeft >= metadeScroll) {
+                wrapper.scrollLeft -= metadeScroll;
+            }
+
+            requestAnimationFrame(animar);
+        }
+
+        animar();
+    });
+
+    // CONFIG QUIZ
+
+    const listaDeQuestoes = [
+
+        {
+            pergunta: "Qual jogo lançou com GameCube?",
+            alternativaA: "Super Mario Sunshine",
+            alternativaB: "Luigi's Mansion",
+            alternativaC: "Mario Kart: Double Dash!!",
+            alternativaD: "Paper Mario",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual concorrente saiu antes do GameCube?",
+            alternativaA: "PlayStation 2",
+            alternativaB: "Dreamcast",
+            alternativaC: "Xbox 360",
+            alternativaD: "Wii",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Qual diferencial tinha Double Dash?",
+            alternativaA: "Corridas online",
+            alternativaB: "Kart voador",
+            alternativaC: "Dois pilotos",
+            alternativaD: "Editor de pistas",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Qual empresa criou o GameCube?",
+            alternativaA: "Sony",
+            alternativaB: "Microsoft",
+            alternativaC: "Nintendo",
+            alternativaD: "Sega",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Qual cor marcou o GameCube?",
+            alternativaA: "Prata",
+            alternativaB: "Verde",
+            alternativaC: "Roxo",
+            alternativaD: "Azul",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Quem caçava fantasmas no GameCube?",
+            alternativaA: "Mario",
+            alternativaB: "Wario",
+            alternativaC: "Luigi",
+            alternativaD: "Yoshi",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Qual jogo dominou torneios competitivos?",
+            alternativaA: "Mario Party 4",
+            alternativaB: "F-Zero GX",
+            alternativaC: "Super Smash Bros. Melee",
+            alternativaD: "Kirby Air Ride",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Em qual ano lançou GameCube?",
+            alternativaA: "1999",
+            alternativaB: "2001",
+            alternativaC: "2003",
+            alternativaD: "2005",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Qual mídia usava o GameCube?",
+            alternativaA: "Cartucho",
+            alternativaB: "DVD comum",
+            alternativaC: "Mini DVD",
+            alternativaD: "Blu-ray",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Qual console sucedeu o GameCube?",
+            alternativaA: "Nintendo 64",
+            alternativaB: "Wii",
+            alternativaC: "Switch",
+            alternativaD: "Wii U",
+            alternativaCorreta: "alternativaB"
+        }
+
+    ]
+
+    // variáveis globais    
+    let numeroDaQuestaoAtual = 0
+    let pontuacaoFinal = 0
+    let tentativaIncorreta = 0
+    let certas = 0
+    let erradas = 0
+    let quantidadeDeQuestoes = listaDeQuestoes.length
+    // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
+
+    function onloadEsconder() {
+        document.getElementById('pontuacao').style.display = "none"
+        document.getElementById('jogo').style.display = "none"
+    }
+
+    function iniciarQuiz() {
+        document.getElementById('arte-quiz').style.display = "none"
+        document.getElementById('pontuacaoEJogo').style.display = "block"
+        document.getElementById('pontuacao').style.display = "column"
+        document.getElementById('jogo').style.display = "flex"
+        document.getElementById('btnIniciarQuiz').style.display = "none"
+
+        document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
+
+        preencherHTMLcomQuestaoAtual(0)
+
+        btnSubmeter.disabled = false
+        btnProx.disabled = true
+        // btnConcluir.disabled = true
+        btnTentarNovamente.disabled = true
+    }
+
+    function preencherHTMLcomQuestaoAtual(index) {
+        habilitarAlternativas(true)
+        const questaoAtual = listaDeQuestoes[index]
+        numeroDaQuestaoAtual = index
+        console.log("questaoAtual")
+        console.log(questaoAtual)
+        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
+        document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
+        document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
+        document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
+        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
+        document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+    }
+
+    function submeter() {
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let hasChecked = false
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].checked) {
+                hasChecked = true
+                break
+            }
+        }
+
+        if (!hasChecked) {
+            alert("Não há alternativas escolhidas. Escolha uma opção.")
+        } else {
+            btnSubmeter.disabled = true
+            btnProx.disabled = false
+
+            habilitarAlternativas(false)
+
+            checarResposta()
+        }
+    }
+
+    function habilitarAlternativas(trueOrFalse) {
+        let opcaoEscolhida = trueOrFalse ? false : true
+
+        primeiraOpcao.disabled = opcaoEscolhida
+        segundaOpcao.disabled = opcaoEscolhida
+        terceiraOpcao.disabled = opcaoEscolhida
+        quartaOpcao.disabled = opcaoEscolhida
+
+    }
+
+    function avancar() {
+        btnProx.disabled = true
+        btnSubmeter.disabled = false
+
+        desmarcarRadioButtons()
+
+        if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
+            alert("Atenção... a próxima é a ultima questão!")
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else {
+            finalizarJogo()
+        }
+        limparCoresBackgroundOpcoes()
+    }
+
+    function tentarNovamente() {
+        // atualiza a página
+        window.location.reload()
+    }
+
+    function checarResposta() {
+        const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
+        const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
+
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let alternativaCorreta = null // variável para armazenar a alternativa correta
+
+        options.forEach((option) => {
+            if (option.value === respostaQuestaoAtual) {
+                console.log("alternativaCorreta está no componente: " + alternativaCorreta)
+                alternativaCorreta = option.labels[0].id
+            }
+        })
+
+        // verifica se resposta assinalada é correta
+        options.forEach((option) => {
+            if (option.checked === true && option.value === respostaQuestaoAtual) {
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                pontuacaoFinal++
+                certas++
+                document.getElementById("spanCertas").innerHTML = certas
+                numeroDaQuestaoAtual++
+            } else if (option.checked && option.value !== respostaQuestaoAtual) {
+                const wrongLabelId = option.labels[0].id
+
+                document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                tentativaIncorreta++
+                erradas++
+                document.getElementById("spanErradas").innerHTML = erradas
+                numeroDaQuestaoAtual++
+            }
+        })
+    }
+
+    function limparCoresBackgroundOpcoes() {
+        const options = document.getElementsByName("option");
+        options.forEach((option) => {
+            document.getElementById(option.labels[0].id).classList.remove("text-danger-with-bg")
+            document.getElementById(option.labels[0].id).classList.remove("text-success-with-bg")
+        })
+    }
+
+    function desmarcarRadioButtons() {
+        const options = document.getElementsByName("option");
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = false;
+        }
+    }
+
+    function finalizarJogo() {
+        let textoParaMensagemFinal = null
+        let classComCoresParaMensagemFinal = null
+        const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
+
+        if (porcentagemFinalDeAcertos <= 0.3) {
+            textoParaMensagemFinal = "Parece que você não estudou..."
+            classComCoresParaMensagemFinal = "text-danger-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
+            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+            classComCoresParaMensagemFinal = "text-warning-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos >= 0.9) {
+            textoParaMensagemFinal = "Uau, parabéns!"
+            classComCoresParaMensagemFinal = "text-success-with-bg"
+        }
+
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
+
+
+        document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
+        document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
+
+        document.getElementById('pontuacaoFinalJogo').style.color = "white";
+
+        document.getElementById('jogo').classList.add("text-new-gray")
+
+        document.getElementById('SpanCertas').style.display = "none";
+        document.getElementById('SpanErradas').style.display = "none";
+
+
+        btnProx.disabled = true
+        btnSubmeter.disabled = true
+        // btnConcluir.disabled = true
+        btnTentarNovamente.disabled = false
+
+    }
+
+    function cadastro() {
+        window.location.href = "cadastro.html";
+    }
+    function login() {
+        window.location.href = "login.html";
+    }
+</script>
