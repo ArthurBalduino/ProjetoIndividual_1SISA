@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComunidadeGC | Reviews</title>
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ttf6eka.css">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <script src="../js/sessao.js"></script>
+    <script src="./../js/alerta.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+
+<body onload="atualizarFeed(), ativar_btn()">
+    <div class="menu-lateral">
+
+        <a href="./dashboard.html">
+            <img class="img-logo" src="../assets/logo-vertical.png" alt="Logo ComunidadeGC">
+        </a>
+
+        <div class="perfil">
+            <h6 style="color: #13131a; font-weight: 700;">Olá, <span id="b_usuario">usuário</span>!</h6>
+        </div>
+
+        <button onclick="home_dash()"> Área Cubística</button>
+        <button id="btn-ativo" onclick="reviews()"> Reviews</button>
+
+        <button class="btn-login" onclick="sair()"> Sair </button>
+
+    </div>
+
+    <main class="container">
+        <!-- Texto inicial -->
+        <div class="chamada">
+            <h2> Área de reviews</h2>
+            <p>Compartilhe com a comunidade a sua opinião!</p>
+        </div>
+
+        <div class="avisos">
+            <div id="alerta">
+            </div>
+            <div class="container-form">
+                <div class="div-form">
+                    <form onsubmit="return publicar()" id="form_postagem">
+                        <label>
+                            Título:
+                            <br>
+                            <input name="titulo" id="titulo" maxlength="100" type="text">
+                        </label>
+                        <br> <br>
+                        <div style="display: flex; gap: 16px; justify-content: space-between;">
+
+                            <div style="width: 49%;">
+                                <label>
+                                    Jogo:
+                                    <br>
+                                    <select name="jogo" id="jogo">
+                                        <option selected disabled>
+                                            Selecione um jogo
+                                        </option>
+
+                                        <option value="1">
+                                            The Legend of Zelda: Wind Waker
+                                        </option>
+
+                                        <option value="2">
+                                            Super Smash Bros. Melee
+                                        </option>
+
+                                        <option value="3">
+                                            Metroid Prime
+                                        </option>
+
+                                        <option value="4">
+                                            Mario Kart: Double Dash!!
+                                        </option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div style="width: 49%;">
+                                <label>
+                                    Nota:
+                                    <br>
+                                    <div class="radio-nota radio-box-nota">
+
+                                        <label>
+                                            <input type="radio" name="nota" value="0">
+                                            0
+                                        </label>
+
+                                        <p style="color: #525252;">|</p>
+
+                                        <label>
+                                            <input type="radio" name="nota" value="1">
+                                            1
+                                        </label>
+
+                                        <p style="color: #525252;">|</p>
+
+
+                                        <label>
+                                            <input type="radio" name="nota" value="2">
+                                            2
+                                        </label>
+
+                                        <p style="color: #525252;">|</p>
+
+
+                                        <label>
+                                            <input type="radio" name="nota" value="3">
+                                            3
+                                        </label>
+
+                                        <p style="color: #525252;">|</p>
+
+
+                                        <label>
+                                            <input type="radio" name="nota" value="4">
+                                            4
+                                        </label>
+
+                                        <p style="color: #525252;">|</p>
+
+                                        <label>
+                                            <input type="radio" name="nota" value="5">
+                                            5
+                                        </label>
+
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <br>
+
+                        <label>
+                            Descrição (máximo de 255 caracteres):
+                            <br>
+                            <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                        </label>
+                        <br>
+                        <br>
+                        <button style="width: 100%;" type="button" onclick="publicar()">Enviar</button>
+                    </form>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <h2 style="display: flex; justify-content: flex-start; margin-bottom: 40px;">Reviews cubísticos:
+                    </h2>
+                    <div class="feed-container" id="feed_container"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+    </main>
+</body>
+
+
+
+
+</body>
+
+</html>
+
+<script>
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    function limparFormulario() {
+        document.getElementById("form_postagem").reset();
+    }
+
+    function publicar() {
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        var corpo = {
+            jogo: document.getElementById("jogo").value,
+            titulo: form_postagem.titulo.value,
+            descricao: form_postagem.descricao.value,
+            nota: document.querySelector('input[name="nota"]:checked')?.value
+        };
+
+        fetch(`/avisos/publicar/${idUsuario}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(corpo)
+        })
+            .then(resposta => {
+                console.log("STATUS:", resposta.status);
+
+                if (!resposta.ok) throw resposta;
+
+                return resposta.json();
+            })
+            .then(dados => {
+                alert("Post realizado!");
+                limparFormulario();
+                atualizarFeed();
+            })
+            .catch(erro => console.log(erro));
+
+        return false;
+    }
+
+    function atualizarFeed() {
+        fetch("/avisos/listar").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("feed_container");
+                    feed.innerHTML = "";
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+
+                        // criando e manipulando elementos do HTML via JavaScript
+                        const divPublicacao = document.createElement("div");
+
+                        divPublicacao.className = "publicacao";
+
+                        divPublicacao.innerHTML = `
+                        <div class="area-review">
+                            <div>
+                                <span>Título: <b>${publicacao.titulo}</b></span>
+                            </div>
+                            <div class="header">
+                                <span>Autor: <b>${publicacao.nome}</b></span>
+                            </div>
+                            
+                            <div>
+                                <span>Jogo: <b>${publicacao.nomeJogo}</b></span>
+                            </div>
+                            <div>
+                            <span>Nota: <b>${publicacao.nota}/5</b></span>
+                            </div>
+                            <div class="review-descricao">
+                                Descrição: <b>${publicacao.descricao}</b>
+                            </div>
+                        </div>
+                        `;
+
+                        feed.appendChild(divPublicacao);
+                    }
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
+
+    function ativar_btn() {
+        document.getElementById("btn-ativo").focus();
+    }
+
+    function home_dash() {
+        window.location.href = "../dashboard/dashboard.html";
+    }
+
+    function sair() {
+        window.location.href = "../index.html";
+    }
+
+</script>

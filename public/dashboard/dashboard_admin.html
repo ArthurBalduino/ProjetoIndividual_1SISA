@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ttf6eka.css">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>ComunidadeGC | Painel Admin</title>
+</head>
+
+<body>
+    <div class="menu-lateral">
+
+        <a href="./dashboard.html">
+            <img class="img-logo" src="../assets/logo-vertical.png" alt="Logo ComunidadeGC">
+        </a>
+
+        <h2 style="text-align: center; align-self: center;">Painel <br>administrativo</h2>
+
+        <div class="perfil">
+            <h6 style="color: #13131a; font-weight: 700;">Olá, <span id="b_usuario">usuário</span>!</h6>
+        </div>
+
+        <button class="btn-login" onclick="sair()"> Sair </button>
+
+    </div>
+
+    <main class="container">
+        <div class="sessao-cards">
+            <div class="card-logos">
+                <div class="text-Card">
+                    <h1 id="total_usuarios" style="margin-top: 0px; margin-bottom: 0px;"> -- </h1>
+                    <h4>Usuários cadastrados</h4>
+                </div>
+            </div>
+
+            <div class="card-logos">
+                <div class="text-Card">
+                    <h1 id="media_idade" style="margin-top: 0px; margin-bottom: 0px;"> -- </h1>
+                    <h4>Média de idade dos usuários</h4>
+                </div>
+            </div>
+
+            <div class="card-logos">
+                <div class="text-Card">
+                    <h1 id="total_reviews" style="margin-top: 0px; margin-bottom: 0px;"> -- </h1>
+                    <h4>Reviews registrados</h4>
+                </div>
+            </div>
+
+            <div class="card-logos">
+                <div class="text-Card">
+                    <h1 id="total_tentativas" style="margin-top: 0px; margin-bottom: 0px;"> -- </h1>
+                    <h4>Tentativas registradas</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Jogos e Quizzes Favoritos -->
+        <section class="container-cards">
+
+            <!-- Card Jogos -->
+            <div class="sessao-quiz">
+                <div class="chamada-cards">
+                    <h2>Jogos favoritos</h2>
+                </div>
+
+                <div class="sessao-cards">
+                    <div class="card-chart">
+                        <canvas id="graficoPizza"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Quizzes -->
+            <div class="sessao-quiz">
+                <div class="chamada-cards">
+                    <h2>Últimos cadastros</h2>
+                </div>
+
+        <div class="card-table tabelaTentativas">
+            <table class="tabela">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">ID</th>
+                        <th style="width: 70%;">Nome</th>
+                        <th style="width: 100%;">Email</th>
+                        <th style="width: 80%;">Data de Nascimento</th>
+                        <th style="width: 100%;">Jogo Favorito</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyCadastros">
+                </tbody>
+            </table>
+        </div>
+            </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
+<script>
+
+    window.onload = function () {
+        document.getElementById("b_usuario").innerHTML = sessionStorage.NOME_USUARIO;
+        chart_pizza();
+        kpi_usuarios();
+        cadastros();
+        mediaIdade();
+        buscarReview();
+        buscarTentativa();
+    }
+
+
+    function chart_pizza() {
+        fetch("/usuarios/favoritos")
+
+            .then(res => res.json())
+
+            .then(dados => {
+
+                const nomes = dados.map(jogo => jogo.nome);
+                const totais = dados.map(jogo => jogo.total);
+                const ctx = document.getElementById("graficoPizza");
+
+                new Chart(ctx, {
+                    type: "pie",
+                    data: {
+                        labels: nomes,
+                        datasets: [{
+                            data: totais,
+                            backgroundColor: ["#6A5ACD", "#F36C21", "#00AEEF", "#7ED957"],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { labels: { color: "white" } }
+                        }
+                    }
+                });
+
+            });
+    }
+
+    function kpi_usuarios() {
+        fetch("/usuarios/usuarios")
+            .then(res => res.json())
+            .then(dados => { document.getElementById("total_usuarios").innerText = dados[0].total; });
+    }
+
+    function cadastros() {
+        fetch("/usuarios/cadastros")
+            .then(res => res.json())
+            .then(dados => {
+                tbodyCadastros.innerHTML = "";
+                dados.forEach(usuario => {
+                    tbodyCadastros.innerHTML += `
+                    <tr>
+                        <td>#${usuario.id}</td>
+                        <td>${usuario.nome}</td>
+                        <td>${usuario.email}</td>
+                        <td>${new Date(usuario.dtNasc).toLocaleDateString("pt-BR")}</td>
+                        <td>${usuario.jogo || "-"}</td>
+                    </tr>
+                `;});
+            });
+    }
+
+    function mediaIdade() {
+        fetch("/usuarios/media-idade")
+            .then(res => res.json())
+            .then(dados => media_idade.innerText = dados[0].mediaIdade);
+    }
+
+    function buscarReview() {
+        fetch("/usuarios/reviews")
+        .then(res => res.json())
+        .then(dados => {
+            if (dados[0].total == undefined) {
+                total_reviews.innerText = "0";
+            } else{
+                total_reviews.innerText = dados[0].total;
+            }
+        });
+    }
+
+    function buscarTentativa() {
+        fetch("/usuarios/tentativas")
+        .then(res => res.json())
+        .then(dados => {
+        if (dados[0].total === undefined) {
+            total_tentativas.innerText = "0";
+        } else{
+            total_tentativas.innerText = dados[0].total;
+        }
+        });
+    }
+
+    function sair() {
+        window.location.href = "../index.html";
+    }
+</script>

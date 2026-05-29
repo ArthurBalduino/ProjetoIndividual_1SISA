@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ComunidadeGC | Cadastro</title>
+
+  <script src="./js/sessao.js"></script>
+
+  <link rel="stylesheet" href="./CSS/cadastro_login.css">
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+</head>
+
+<body>
+  <!--header inicio-->
+  <div class="header">
+    <div class="logo">
+      <img class="img-logo" src="./assets/logo-horizontal.png" alt="Logo da Comunidade GameCube">
+    </div>
+
+    <button onclick="voltar()">Voltar</button>
+  </div>
+
+  <div class="main">
+    <div class="formulario">
+      <div class="form">
+        <h2>Cadastro</h2>
+
+        <div style="color: red;" id="div_erro"></div>
+
+        <div class="form-inputs">
+          <h3>Nome: </h3>
+          <input type="text" id="ipt_nome" placeholder="Nome Completo">
+        </div>
+
+        <div class="form-inputs">
+          <h3>Data de nascimento: </h3>
+          <input type="date" id="ipt_dtNasc" placeholder="DD/MM/YYYY">
+        </div>
+
+        <div class="form-inputs">
+          <h3>Email: </h3>
+          <input type="text" id="ipt_email" placeholder="email@provedor.com">
+        </div>
+
+        <div class="form-inputs">
+          <h3>Senha: </h3>
+          <input type="password" id="ipt_senha" placeholder="********">
+        </div>
+
+        <div class="form-inputs">
+          <h3>Confirme sua senha: </h3>
+          <input type="password" id="ipt_confirm_senha" placeholder="********">
+        </div>
+
+        <div class="form-inputs">
+          <h3>Jogo favorito: </h3>
+          <select name="jogos" id="ipt_jogo">
+            <option value="0"> Selecione o seu jogo do coração</option>
+            <option value="1"> The Legend of Zelda: Wind Waker</option>
+            <option value="2"> Smash Bros. Melee</option>
+            <option value="3"> Metroid Prime</option>
+            <option value="4"> Mario Kart: Double Dash </option>
+          </select>
+        </div>
+
+        <button style="width: 85%;" onclick="cadastrar()">CADASTRAR</button>
+
+        <hr class="divisor">
+        <p>
+          Já tem uma conta?
+        </p>
+        <button onclick="login()" class="btn-login">Entrar</button>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+
+  function validar() {
+    let ax_erro = false;
+    let ax_nome = ipt_nome.value.trim();
+    let ax_dtNasc = ipt_dtNasc.value.trim();
+    let ax_email = ipt_email.value.trim();
+    let ax_senha = ipt_senha.value.trim();
+    let ax_confirm_senha = ipt_confirm_senha.value.trim();
+    let ax_jogo = ipt_jogo.value;
+
+    if (ax_jogo == '0') {
+      ax_erro = true;
+      div_erro.innerHTML = 'Selecione um jogo favorito';
+    }
+    if (ax_senha != ax_confirm_senha) {
+      ax_erro = true;
+      div_erro.innerHTML = 'As senhas não coincidem';
+    }
+    if (ax_senha.length < 5) {
+      ax_erro = true;
+      div_erro.innerHTML = 'Digite uma senha com mais de 5 digitos';
+    }
+    if (ax_email == "" ||
+      (!ax_email.includes('@gmail') &&
+        !ax_email.includes('@uol') &&
+        !ax_email.includes('@outlook') &&
+        !ax_email.includes('@hotmail'))) {
+      ax_erro = true;
+      div_erro.innerHTML = 'Digite um e-mail válido';
+    }
+    if (ax_dtNasc.length < 8) {
+      ax_erro = true;
+      div_erro.innerHTML = `Preencha todos os campos da data.`
+    }
+    if (!/^[A-Za-zÀ-ÿ\s]+$/.test(ax_nome)) {
+      ax_erro = true;
+      div_erro.innerHTML = `Insira um nome válido.`
+    }
+    if (ax_nome.length < 3) {
+      ax_erro = true;
+      div_erro.innerHTML = `Insira um nome com mais de 3 letras.`
+    }
+
+    if (ax_erro == false) {
+      div_erro.innerHTML = '';
+      div_erro.style.display = "none";
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function cadastrar() {
+    if (!validar()) {
+      return;
+    } else {
+      // aguardar();
+      //Recupere o valor da nova input pelo nome do id
+      // Agora vá para o método fetch logo abaixo
+      var nomeVar = ipt_nome.value;
+      var dtNascVar = ipt_dtNasc.value;
+      var emailVar = ipt_email.value;
+      var senhaVar = ipt_senha.value;
+      var confirmacaoSenhaVar = ipt_confirm_senha.value;
+      var jogoVar = ipt_jogo.value;
+
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeVar,
+          dtNascServer: dtNascVar,
+          emailServer: emailVar,
+          senhaServer: senhaVar,
+          jogoServer: jogoVar
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+            div_erro.style.display = "flex";
+            div_erro.style.color = "black";
+            div_erro.innerHTML = `Cadastro realizado com sucesso! <br> Redirecionando para tela de Login...`;
+
+            setTimeout(() => {
+              window.location = "login.html";
+            }, 2000);
+
+            limparFormulario();
+            finalizarAguardar();
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          finalizarAguardar();
+        });
+
+      return false;
+    }
+
+  }
+
+  function sumirMensagem() {
+    div_erro.style.display = "none";
+  }
+
+  function login() {
+    window.location.href = "login.html";
+  }
+  function voltar() {
+    window.location.href = "index.html";
+  }
+
+  document.addEventListener("keydown", e => {
+    if (e.key == "Enter") cadastrar();
+  });
+</script>

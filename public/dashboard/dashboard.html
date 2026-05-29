@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ttf6eka.css">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <title>ComunidadeGC | Painel</title>
+</head>
+
+<body onload="ativar_btn()">
+    <div class="menu-lateral">
+
+        <a href="./dashboard.html">
+            <img class="img-logo" src="../assets/logo-vertical.png" alt="Logo ComunidadeGC">
+        </a>
+
+        <div class="perfil">
+            <h6 style="color: #13131a; font-weight: 700;">Olá, <span id="b_usuario">usuário</span>!</h6>
+        </div>
+
+        <button id="btn-ativo" onclick="quiz()"> Área Cubística</button>
+        <button onclick="reviews()"> Reviews</button>
+
+        <button class="btn-login" onclick="sair()"> Sair </button>
+
+    </div>
+
+    <main class="container">
+        <!-- Texto inicial -->
+        <div class="chamada">
+            <h2> Área cubística</h2>
+            <p><span id="b_usuario_2">usuário</span>, sinta-se em casa!</p>
+        </div>
+
+        <!-- Card Jogo Favorito -->
+        <div class="card-jogo">
+            <div id="jogo-favorito">
+                <img id="img-jogo" class="img-logo" src="../assets/logos_games/windwaker.png" alt="Logo WindWaker">
+            </div>
+
+            <div class="container-content">
+                <h6>Seu jogo favorito:</h6>
+                <h2 id="titulo-jogo">The Legend of Zelda: The Wind Waker</h2>
+                <p id="descricao-jogo"> The Legend of Zelda: The Wind Waker, lançado em 2002 pela Nintendo, é um dos
+                    jogos mais aclamados do
+                    GameCube , acompanhando Link em uma aventura marítima para resgatar sua irmã e enfrentar uma antiga
+                    ameaça em Hyrule.</p>
+            </div>
+        </div>
+
+        <!-- Section Quiz e Walktrough -->
+        <section class="container-cards">
+
+            <!-- Card Quizzes -->
+            <div class="sessao-quiz">
+                <div class="chamada-cards">
+                    <h2>Quizzes</h2>
+                    <p>Teste seu conhecimento!</p>
+                </div>
+
+                <div class="sessao-cards">
+                    <div onclick="quiz_zelda()" class="card-quiz img-zelda">
+                        <div class="texto-card">
+                            <h4>Quiz Zelda</h4>
+                            <p>Acha que conhece os mares <br> da Grande Hyrule?</p>
+                            <p class="descritivo"> Nível: 2 | 10 Questões</p>
+                        </div>
+                    </div>
+
+                    <div onclick="quiz_mario()" class="card-quiz img-mario">
+                        <div class="texto-card">
+                            <h4>Quiz Mario</h4>
+                            <p>Você acha que domina as pistas do Double Dash??</p>
+                            <p class="descritivo"> Nível: 2 | 10 Questões</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Walktrough -->
+            <div class="sessao-quiz">
+
+                <div class="chamada-cards">
+                    <h2>Walktroughs</h2>
+                    <p>Tutoriais e guias</p>
+                </div>
+
+                <div class="sessao-cards">
+                    <div onclick="videoShell()" class="card-walk img-shell">
+                        <div class="texto-card">
+                            <h4>Trocar a shell</h4>
+                            <p>Como trocar o cubo?</p>
+                            <p class="descritivo"> Nível: 2 | Intermediário</p>
+                        </div>
+                    </div>
+
+                    <div onclick="videoControle()" class="card-walk img-controle">
+                        <div class="texto-card">
+                            <h4>Trocar o controle</h4>
+                            <p>Como trocar o controle?</p>
+                            <p class="descritivo"> Nível: 3 | Difícil</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <div class="card-video">
+            <video class="video" controls src="../assets/sequence01.mp4"></video>
+        </div>
+
+    </main>
+</body>
+
+</html>
+<script>
+
+    window.onload = function () {
+        document.getElementById("b_usuario").innerHTML = sessionStorage.NOME_USUARIO;
+        document.getElementById("b_usuario_2").innerHTML = sessionStorage.NOME_USUARIO;
+        document.getElementById("btn-ativo").focus();
+
+        const jogos = {
+
+            1: {
+                nome:
+                    "The Legend of Zelda: The Wind Waker",
+
+                imagem:
+                    "../assets/logos_games/windwaker.png",
+
+                descricao:
+                    "Lançado em 2002 pela Nintendo, acompanha Link em uma aventura marítima para resgatar sua irmã e enfrentar uma antiga ameaça em Hyrule."
+            },
+
+            2: {
+                nome:
+                    "Super Smash Bros. Melee",
+
+                imagem:
+                    "../assets/logos_games/smash-melee.png",
+
+                descricao:
+                    "Lançado em 2001 pela Nintendo, tornou-se um dos jogos de luta mais icônicos do GameCube, reunindo personagens lendários em batalhas frenéticas."
+            },
+
+            3: {
+                nome:
+                    "Metroid Prime",
+
+                imagem:
+                    "../assets/logos_games/metroid-prime.png",
+
+                descricao:
+                    "Lançado em 2002 pela Nintendo, coloca Samus Aran em uma aventura sci-fi repleta de exploração e combate em primeira pessoa."
+            },
+
+            4: {
+                nome:
+                    "Mario Kart: Double Dash!!",
+
+                imagem:
+                    "../assets/logos_games/mario-kart.png",
+
+                descricao:
+                    "Lançado em 2003 pela Nintendo, inovou a franquia ao permitir dois personagens por kart em corridas caóticas e extremamente divertidas."
+            }
+        };
+
+        const jogoId = sessionStorage.JOGO_USUARIO;
+
+        const jogo =
+            jogos[jogoId];
+
+        if (jogo) {
+
+            document
+                .getElementById("img-jogo")
+                .src = jogo.imagem;
+
+            document
+                .getElementById("titulo-jogo")
+                .innerHTML = jogo.nome;
+
+            document
+                .getElementById("descricao-jogo")
+                .innerHTML = jogo.descricao;
+        }
+    }
+
+
+    function videoShell() {
+        window.open("https://www.youtube.com/watch?v=lsr-5bAcmRk", "_blank");
+    }
+
+    function videoControle() {
+        window.open("https://www.youtube.com/watch?v=iTIi87f3voU", "_blank");
+    }
+
+    function quiz_zelda() {
+        window.location.href = "../dashboard/quiz_zelda.html";
+    }
+
+    function quiz_mario() {
+        window.location.href = "../dashboard/quiz_mario.html";
+    }
+
+    function reviews() {
+        window.location.href = "../dashboard/reviews.html";
+    }
+
+    function sair() {
+        window.location.href = "../index.html";
+    }
+</script>
